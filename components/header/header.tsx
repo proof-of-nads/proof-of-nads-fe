@@ -1,23 +1,20 @@
-import { SettingsIcon } from "lucide-react";
+"use client";
+
 import ConnectButton from "../connect-button";
 import HeaderNavigation from "./header-navigation";
 import Logo from "../logo/logo";
-import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import HamburgerMenu from "./hamburger-menu";
 
 export default function Header() {
   return (
-    <header className="flex justify-between items-center p-4">
+    <header className="flex justify-between items-center p-4 h-[72px]">
       <div className="flex items-center gap-4">
         <Logo />
-        <HeaderNavigation />
+        <HeaderNavigation className="hidden lg:flex" />
       </div>
       <div className="flex items-center gap-2">
         <ConnectButton />
-        <HamburgerMenuIcon
-          width={24}
-          height={24}
-          className="cursor-pointer hover:opacity-80 transition-opacity"
-        />
+        <HamburgerMenu />
       </div>
     </header>
   );

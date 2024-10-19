@@ -4,7 +4,11 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function HeaderNavigation() {
+export default function HeaderNavigation({
+  className,
+}: {
+  className?: string;
+}) {
   const pathname = usePathname();
   const isActive = (path: string) => pathname === path;
 
@@ -12,10 +16,16 @@ export default function HeaderNavigation() {
     { label: "Profile", href: "/profile" },
     { label: "Connections", href: "/connections" },
     { label: "Leaderboard", href: "/leaderboard" },
+    { label: "Settings", href: "/settings" },
   ];
 
   return (
-    <nav className="hidden lg:flex gap-3 items-center text-lg font-medium">
+    <nav
+      className={cn(
+        "flex flex-col lg:flex-row gap-3 items-center text-lg font-medium",
+        className
+      )}
+    >
       {targetLinks.map((link) => (
         <Link
           className={cn(

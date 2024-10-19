@@ -27,12 +27,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-dvh`}
-      >
-        <Header />
-        <Providers>{children}</Providers>
-      </body>
+      <Providers>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-dvh`}
+        >
+          <Header />
+          <main className="flex-1">{children}</main>
+        </body>
+      </Providers>
     </html>
   );
 }

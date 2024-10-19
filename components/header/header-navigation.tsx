@@ -15,10 +15,14 @@ export default function HeaderNavigation() {
   ];
 
   return (
-    <nav className="hidden lg:flex gap-3 items-center text-lg">
+    <nav className="hidden lg:flex gap-3 items-center text-lg font-medium">
       {targetLinks.map((link) => (
         <Link
-          className={cn("p-2", isActive(link.href) && "text-primary")}
+          className={cn(
+            "p-2",
+            isActive(link.href) && "text-primary",
+            "hover:text-primary/60 transition-colors"
+          )}
           href={link.href}
           key={link.href}
         >

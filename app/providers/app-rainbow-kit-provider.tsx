@@ -10,10 +10,12 @@ import {
   holesky,
 } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { phantomWallet } from "@rainbow-me/rainbowkit/wallets";
 
 const config = getDefaultConfig({
-  appName: "My RainbowKit App",
+  appName: "Proof-of-nads",
   projectId: "YOUR_PROJECT_ID",
+
   chains: [
     mainnet,
     polygon,
@@ -24,7 +26,7 @@ const config = getDefaultConfig({
     arbitrum,
     optimism,
   ],
-  ssr: true, // If your dApp uses server side rendering (SSR)
+  ssr: true,
 });
 
 const queryClient = new QueryClient();

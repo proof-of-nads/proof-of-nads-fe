@@ -8,13 +8,24 @@ import {
   createStorage,
   WagmiProvider,
 } from "wagmi";
-import { mainnet } from "wagmi/chains";
+import { mainnet, arbitrumSepolia, optimismSepolia } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import {
+  phantomWallet,
+  okxWallet,
+  magicEdenWallet,
+} from "@rainbow-me/rainbowkit/wallets";
 
 const config = getDefaultConfig({
   appName: "RainbowKit demo",
   projectId: "YOUR_PROJECT_ID",
-  chains: [mainnet],
+  chains: [mainnet, arbitrumSepolia, optimismSepolia],
+  wallets: [
+    {
+      groupName: "Recommended",
+      wallets: [okxWallet, magicEdenWallet, phantomWallet],
+    },
+  ],
   ssr: true,
   storage: createStorage({
     storage: cookieStorage,

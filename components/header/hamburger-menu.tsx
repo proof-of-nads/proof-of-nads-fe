@@ -29,7 +29,7 @@ export default function HamburgerMenu() {
         />
       </DrawerTrigger>
       <DrawerContent className="h-full rounded-r-none w-full max-w-[300px] p-5 flex flex-col">
-        <DrawerClose>
+        <DrawerClose className="absolute right-4 top-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

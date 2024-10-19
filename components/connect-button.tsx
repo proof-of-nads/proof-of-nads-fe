@@ -7,11 +7,11 @@ import {
   useChainModal,
 } from "@rainbow-me/rainbowkit";
 import { useAccount, useDisconnect } from "wagmi";
-// import { emojiAvatarForAddress } from "@/lib/emojiAvatarForAddress";
 import { Button } from "./ui/button";
+import { Avatar, AvatarFallback } from "./ui/avatar";
 
 export const ConnectBtn = () => {
-  const { isConnecting, isConnected, chain } = useAccount();
+  const { isConnecting, isConnected, chain, address } = useAccount();
 
   const { openConnectModal } = useConnectModal();
   const { openAccountModal } = useAccountModal();
@@ -27,7 +27,6 @@ export const ConnectBtn = () => {
   if (!isConnected) {
     return (
       <Button
-        className="btn"
         onClick={async () => {
           // Disconnecting wallet first because sometimes when is connected but the user is not connected
           if (isConnected) {
@@ -36,6 +35,7 @@ export const ConnectBtn = () => {
           openConnectModal?.();
         }}
         disabled={isConnecting}
+        className="min-w-[160px]"
       >
         {isConnecting ? "Connecting..." : "Connect your wallet"}
       </Button>
@@ -44,32 +44,25 @@ export const ConnectBtn = () => {
 
   if (isConnected && !chain) {
     return (
-      <Button className="btn" onClick={openChainModal}>
+      <Button className="min-w-[160px]" onClick={openChainModal}>
         Wrong network
       </Button>
     );
   }
 
   return (
-    <div className="max-w-5xl w-full flex items-center justify-between">
-      <div
-        className="flex justify-center items-center px-4 py-2 border border-neutral-700 bg-neutral-800/30 rounded-xl font-mono font-bold gap-x-2 cursor-pointer"
-        onClick={async () => openAccountModal?.()}
-      >
-        <div
-          role="button"
-          tabIndex={1}
-          className="h-8 w-8 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden"
-          style={{
-            boxShadow: "0px 2px 2px 0px rgba(81, 98, 255, 0.20)",
-          }}
-        ></div>
-        <p>Account</p>
-      </div>
-      <Button className="btn" onClick={openChainModal}>
-        Switch Networks
-      </Button>
-    </div>
+    <Button
+      className="flex items-center justify-between min-w-[160px]"
+      onClick={async () => openAccountModal?.()}
+    >
+      <Avatar className="w-6 h-6 text-xs">
+        <AvatarFallback className=" bg-white text-black">LC</AvatarFallback>
+      </Avatar>
+      <span>
+        {address.slice(0, 6)}...{address.slice(-4)}
+      </span>
+      <div onClick={openChainModal}>Switch</div>
+    </Button>
   );
 };
 

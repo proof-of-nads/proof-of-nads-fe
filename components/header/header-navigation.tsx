@@ -22,7 +22,7 @@ export default function HeaderNavigation({
   return (
     <nav
       className={cn(
-        "flex flex-col lg:flex-row gap-3 items-center text-lg font-medium",
+        "flex flex-col lg:flex-row gap-3  items-center text-lg font-medium",
         className
       )}
     >

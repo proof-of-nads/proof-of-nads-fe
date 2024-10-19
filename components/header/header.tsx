@@ -13,7 +13,7 @@ export default function Header() {
         <HeaderNavigation className="hidden lg:flex" />
       </div>
       <div className="flex items-center gap-2">
-        <ConnectButton />
+        <ConnectButton className="hidden lg:flex" />
         <HamburgerMenu />
       </div>
     </header>

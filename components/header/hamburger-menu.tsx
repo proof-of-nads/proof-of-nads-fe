@@ -21,7 +21,7 @@ export default function HamburgerMenu() {
 
   return (
     <Drawer direction="right">
-      <DrawerTrigger asChild>
+      <DrawerTrigger className="lg:hidden" asChild>
         <HamburgerMenuIcon
           width={24}
           height={24}
@@ -47,11 +47,12 @@ export default function HamburgerMenu() {
         </DrawerClose>
         <div className="flex items-center gap-2">
           <Avatar>
-            <AvatarFallback>{address?.[0]?.toUpperCase()}</AvatarFallback>
+            <AvatarFallback>Nad</AvatarFallback>
           </Avatar>
-
           <div>
-            <p className="text-sm font-medium">0x123123</p>
+            <p className="text-sm font-medium">
+              {address?.slice(0, 6)}...{address?.slice(-4)}
+            </p>
             <p className="text-xs text-muted-foreground">{chain?.name}</p>
           </div>
           {isConnected ? (

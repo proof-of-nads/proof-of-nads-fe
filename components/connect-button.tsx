@@ -9,8 +9,9 @@ import {
 import { useAccount, useDisconnect } from "wagmi";
 import { Button } from "./ui/button";
 import { Avatar, AvatarFallback } from "./ui/avatar";
+import { cn } from "@/lib/utils";
 
-export const ConnectBtn = () => {
+export const ConnectBtn = ({ className }: { className?: string }) => {
   const { isConnecting, isConnected, chain, address } = useAccount();
 
   const { openConnectModal } = useConnectModal();
@@ -35,7 +36,7 @@ export const ConnectBtn = () => {
           openConnectModal?.();
         }}
         disabled={isConnecting}
-        className="min-w-[160px]"
+        className={cn("min-w-[160px]", className)}
       >
         {isConnecting ? "Connecting..." : "Connect your wallet"}
       </Button>
@@ -44,25 +45,35 @@ export const ConnectBtn = () => {
 
   if (isConnected && !chain) {
     return (
-      <Button className="min-w-[160px]" onClick={openChainModal}>
+      <Button
+        className={cn("min-w-[160px]", className)}
+        onClick={openChainModal}
+      >
         Wrong network
       </Button>
     );
   }
 
   return (
-    <Button
-      className="flex items-center justify-between min-w-[160px]"
-      onClick={async () => openAccountModal?.()}
-    >
-      <Avatar className="w-6 h-6 text-xs">
-        <AvatarFallback className=" bg-white text-black">LC</AvatarFallback>
-      </Avatar>
-      <span>
-        {address.slice(0, 6)}...{address.slice(-4)}
-      </span>
-      <div onClick={openChainModal}>Switch</div>
-    </Button>
+    <div className="flex items-center gap-2">
+      <Button
+        className={cn(
+          "flex items-center justify-between min-w-[160px]",
+          className
+        )}
+        onClick={async () => openAccountModal?.()}
+      >
+        <Avatar className="w-6 h-6 text-xs">
+          <AvatarFallback className=" bg-white text-black">LC</AvatarFallback>
+        </Avatar>
+        <span>
+          {address?.slice(0, 6)}...{address?.slice(-4)}
+        </span>
+      </Button>
+      <div className="cursor-pointer" onClick={openChainModal}>
+        Switch
+      </div>
+    </div>
   );
 };
 

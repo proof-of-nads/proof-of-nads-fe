@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { signIn, signOut } from "@/auth";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -19,51 +19,31 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { signIn } from "@/auth";
 
 export function ProfileCardWithForm() {
   const handleDiscordLogin = () => {
     signIn("discord");
   };
 
-  const handleDiscordLogout = () => {
-    signOut();
-  };
-
   return (
     <Card className="w-[400px]">
       <CardHeader>
         <CardTitle>Profile</CardTitle>
+        {/* <CardDescription>Deploy your new project in one-click.</CardDescription> */}
       </CardHeader>
       <CardContent>
         <form>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">Name</Label>
-              <Input
-                id="name"
-                placeholder="Your username"
-                value={session?.user?.username || ""}
-                readOnly
-              />
+              <Input id="name" placeholder="Your username" />
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="discord">Discord</Label>
+              <Label htmlFor="name">Twitter Handle</Label>
               <div className="flex items-center gap-2">
-                <Input
-                  id="discord"
-                  placeholder="Your Discord username"
-                  value={
-                    session?.user?.username
-                      ? `${session.user.username}#${session.user.discriminator}`
-                      : ""
-                  }
-                  readOnly
-                />
-                {status === "authenticated" ? (
-                  <Button onClick={handleDiscordLogout}>Disconnect</Button>
-                ) : (
-                  <Button onClick={handleDiscordLogin}>Connect Discord</Button>
-                )}
+                <Input id="name" placeholder="@your twitter handle" />
+                <Button onClick={handleDiscordLogin}>Connect twitter</Button>
               </div>
             </div>
             <div className="flex flex-col space-y-1.5">
@@ -85,7 +65,7 @@ export function ProfileCardWithForm() {
       </CardContent>
       <CardFooter className="flex justify-between">
         <Button variant="outline">Cancel</Button>
-        <Button>Save</Button>
+        <Button>Deploy</Button>
       </CardFooter>
     </Card>
   );

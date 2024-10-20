@@ -30,12 +30,14 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-dvh`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers cookie={cookie}>
-          <Header />
-          <main className="flex flex-col items-center h-full flex-1">
-            {children}
+          <main className="flex flex-col  min-h-dvh">
+            <Header />
+            <section className="flex bg-background  flex-col items-center h-full flex-1">
+              {children}
+            </section>
           </main>
         </Providers>
       </body>

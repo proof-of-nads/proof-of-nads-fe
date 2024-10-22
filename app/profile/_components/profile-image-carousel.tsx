@@ -43,6 +43,11 @@ export function ProfileImageCarousel() {
                     <span className="absolute bottom-2 right-2 text-sm font-semibold text-white bg-black bg-opacity-50 px-2 py-1 rounded">
                       {index + 1}
                     </span>
+                    {index === 0 && (
+                      <span className="absolute top-2 right-2 text-sm font-semibold text-white bg-primary px-2 py-1 rounded">
+                        Current
+                      </span>
+                    )}
                   </div>
                 </CardContent>
               </Card>

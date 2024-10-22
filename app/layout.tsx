@@ -33,7 +33,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers cookie={cookie}>
-          <main className="flex flex-col  min-h-dvh pb-24">
+          <main className="flex flex-col  min-h-dvh pb-12">
             <Header />
             <section className="flex bg-background flex-col items-center h-full flex-1">
               {children}

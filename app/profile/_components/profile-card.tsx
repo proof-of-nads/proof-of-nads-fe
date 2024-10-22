@@ -52,7 +52,7 @@ export function ProfileCardWithForm() {
                   />
                   <AvatarFallback>NAD</AvatarFallback>
                 </Avatar>
-                <span className="border border-black cursor-pointer hover:bg-primary transition-colors flex items-center absolute bottom-2 -right-3.5 bg-primary text-white text-[12px] rounded-lg px-3.5 py-1.5 leading-none">
+                <span className="border hover:bg-purple-500 border-black cursor-pointer hover:bg-primary transition-colors flex items-center absolute bottom-2 -right-3.5 bg-primary text-white text-[12px] rounded-lg px-3.5 py-1.5 leading-none">
                   Edit
                 </span>
               </div>

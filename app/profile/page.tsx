@@ -84,13 +84,13 @@ export default function ProfilePage() {
           </div>
         </div>
       </section>
-      <section className="w-full max-w-[1024px]  items-center flex flex-col gap-2">
+      <section className="w-full max-w-[1024px]  items-center flex flex-col">
         <h3 className="px-5 max-w-2xl lg:max-w-[1024px] w-full">
           Profile Gallery
         </h3>
         <ProfileImageCarousel />
       </section>
-      <section className="w-full max-w-[1024px] mt-5  items-center flex flex-col gap-2">
+      <section className="w-full max-w-[1024px] mt-5  items-center flex flex-col">
         <h3 className="px-5 max-w-2xl lg:max-w-[1024px] w-full">
           Proof Gallery
         </h3>

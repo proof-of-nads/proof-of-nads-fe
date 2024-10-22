@@ -16,7 +16,7 @@ export default function HeaderNavigation({
     { label: "Profile", href: "/profile" },
     { label: "Connections", href: "/connections" },
     { label: "Leaderboard", href: "/leaderboard" },
-    { label: "Settings", href: "/settings" },
+    // { label: "Settings", href: "/settings" },
   ];
 
   return (

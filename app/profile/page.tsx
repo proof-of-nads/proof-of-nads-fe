@@ -10,7 +10,6 @@ export default function ProfilePage() {
       <h1>Your Profile</h1>
       <Separator />
       <section className="flex flex-col gap-2">
-        <h3>Connection Statistic</h3>
         <div className="flex  gap-4">
           <ProfileCardWithForm />
           <Card className="flex-1">
@@ -31,7 +30,7 @@ export default function ProfilePage() {
         </div>
       </section>
       <section className="flex flex-col gap-2">
-        <h3>Profile Picture Gallery</h3>
+        <h3>Profile Gallery</h3>
         <ProfileImageCarousel />
       </section>
     </section>

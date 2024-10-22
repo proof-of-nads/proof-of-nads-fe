@@ -43,7 +43,28 @@ export function ProfileCardWithForm() {
               <Label htmlFor="name">Twitter Handle</Label>
               <div className="flex items-center gap-2">
                 <Input id="name" placeholder="@your twitter handle" />
-                <Button onClick={handleDiscordLogin}>Connect twitter</Button>
+                <Button className="min-w-[130px]" onClick={handleDiscordLogin}>
+                  Connect twitter
+                </Button>
+              </div>
+            </div>
+
+            <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="name">Discord User</Label>
+              <div className="flex items-center gap-2">
+                <Input
+                  id="name"
+                  placeholder="@your twitter handle"
+                  value={"0xHugo.nad"}
+                  disabled
+                />
+                <Button
+                  disabled
+                  onClick={handleDiscordLogin}
+                  className="w-[130px]"
+                >
+                  Discord Verified
+                </Button>
               </div>
             </div>
             <div className="flex flex-col space-y-1.5">
@@ -63,9 +84,8 @@ export function ProfileCardWithForm() {
           </div>
         </form>
       </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button variant="outline">Cancel</Button>
-        <Button>Deploy</Button>
+      <CardFooter className="flex justify-end">
+        <Button>Save</Button>
       </CardFooter>
     </Card>
   );

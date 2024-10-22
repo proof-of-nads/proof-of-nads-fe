@@ -36,7 +36,7 @@ export const ConnectBtn = ({ className }: { className?: string }) => {
           openConnectModal?.();
         }}
         disabled={isConnecting}
-        className={cn("md:min-w-[160px]", className)}
+        className={cn("md:min-w-[160px] text-base", className)}
       >
         {isConnecting ? "Connecting..." : "Connect wallet"}
       </Button>

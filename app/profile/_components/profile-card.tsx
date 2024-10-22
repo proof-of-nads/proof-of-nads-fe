@@ -42,9 +42,9 @@ export function ProfileCardWithForm() {
               <Input
                 id="name"
                 placeholder="Your username"
-                className="w-[211px]"
+                className="w-[150px]"
               />
-              <div className="absolute right-0 top-0 -translate-y-1/2">
+              <div className="absolute left-[220px] top-0 -translate-y-1/2">
                 <Avatar className="w-28 h-28">
                   <AvatarImage
                     src="/images/profile/sample-1.png"
@@ -60,9 +60,16 @@ export function ProfileCardWithForm() {
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">Twitter Handle</Label>
               <div className="flex items-center gap-2">
-                <Input id="name" placeholder="@your twitter handle" />
-                <Button className="min-w-[130px]" onClick={handleDiscordLogin}>
-                  Connect twitter
+                <Input
+                  id="name"
+                  className="w-[150px]"
+                  placeholder="@twitter handle"
+                />
+                <Button
+                  className="min-w-[100px] text-sm"
+                  onClick={handleDiscordLogin}
+                >
+                  Connect
                 </Button>
               </div>
             </div>
@@ -74,14 +81,15 @@ export function ProfileCardWithForm() {
                   id="name"
                   placeholder="@twitter handle"
                   value={"0xHugo.nad"}
+                  className="w-[150px]"
                   disabled
                 />
                 <Button
                   disabled
                   onClick={handleDiscordLogin}
-                  className="w-[130px]"
+                  className="w-[100px] text-sm"
                 >
-                  Discord Verified
+                  Verified
                 </Button>
               </div>
             </div>

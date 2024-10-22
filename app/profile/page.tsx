@@ -58,7 +58,7 @@ export default function ProfilePage() {
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="text-lg font-semibold text-primary flex items-center gap-2">
-                    <UserIcon className="text-primary" />
+                    <UsersIcon className="text-primary" />
                     <span> 2nd Connections : 6</span>
                   </div>
                   <div className="flex -space-x-4">

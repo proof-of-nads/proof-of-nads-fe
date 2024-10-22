@@ -4,6 +4,7 @@ import { ProfileImageCarousel } from "./_components/profile-image-carousel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { UserIcon, UsersIcon } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ProofImageCarousel } from "./_components/proof-image-carousel";
 
 export default function ProfilePage() {
   const userFirstConnections = [
@@ -88,6 +89,12 @@ export default function ProfilePage() {
           Profile Gallery
         </h3>
         <ProfileImageCarousel />
+      </section>
+      <section className="w-full max-w-[1024px] mt-5  items-center flex flex-col gap-2">
+        <h3 className="px-5 max-w-2xl lg:max-w-[1024px] w-full">
+          Proof Gallery
+        </h3>
+        <ProofImageCarousel />
       </section>
     </>
   );

@@ -35,7 +35,7 @@ export default async function RootLayout({
         <Providers cookie={cookie}>
           <main className="flex flex-col  min-h-dvh pb-24">
             <Header />
-            <section className="flex bg-background  flex-col items-center h-full flex-1">
+            <section className="flex bg-background flex-col items-center h-full flex-1">
               {children}
             </section>
           </main>

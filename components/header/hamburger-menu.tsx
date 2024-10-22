@@ -1,6 +1,6 @@
 "use client";
 
-import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { Cross2Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import {
   Drawer,
   DrawerClose,
@@ -30,31 +30,22 @@ export default function HamburgerMenu() {
       </DrawerTrigger>
       <DrawerContent className="h-full rounded-r-none w-full max-w-[300px] p-5 flex flex-col">
         <DrawerClose className="absolute right-4 top-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M18 6 6 18" />
-            <path d="m6 6 12 12" />
-          </svg>
+          <Cross2Icon width={24} height={24} />
         </DrawerClose>
-        <div className="flex items-center gap-2">
-          <Avatar>
-            <AvatarFallback>Nad</AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="text-sm font-medium">
-              {address?.slice(0, 6)}...{address?.slice(-4)}
-            </p>
-            <p className="text-xs text-muted-foreground">{chain?.name}</p>
-          </div>
+        <div className="flex items-center gap-2 pt-4">
+          {address && (
+            <>
+              <div>
+                <p className="text-sm font-medium">
+                  {address?.slice(0, 6)}...{address?.slice(-4)}
+                </p>
+                <p className="text-xs text-muted-foreground">{chain?.name}</p>
+              </div>
+              <Avatar>
+                <AvatarFallback>Nad</AvatarFallback>
+              </Avatar>
+            </>
+          )}
           {isConnected ? (
             <Button
               className={cn(isConnected ? "flex" : "hidden")}
@@ -66,7 +57,7 @@ export default function HamburgerMenu() {
             <ConnectBtn />
           )}
         </div>
-        <HeaderNavigation />
+        <HeaderNavigation className="pt-4 text-xl items-start" />
       </DrawerContent>
     </Drawer>
   );

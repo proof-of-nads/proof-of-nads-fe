@@ -10,7 +10,7 @@ export default function ProfilePage() {
       <h1>Your Profile</h1>
       <Separator />
       <section className="flex flex-col gap-2">
-        <div className="flex  gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <ProfileCardWithForm />
           <Card className="flex-1">
             <CardHeader>

@@ -36,9 +36,9 @@ export const ConnectBtn = ({ className }: { className?: string }) => {
           openConnectModal?.();
         }}
         disabled={isConnecting}
-        className={cn("min-w-[160px]", className)}
+        className={cn("md:min-w-[160px]", className)}
       >
-        {isConnecting ? "Connecting..." : "Connect your wallet"}
+        {isConnecting ? "Connecting..." : "Connect wallet"}
       </Button>
     );
   }
@@ -66,9 +66,11 @@ export const ConnectBtn = ({ className }: { className?: string }) => {
         <Avatar className="w-6 h-6 text-xs">
           <AvatarFallback className=" bg-white text-black">LC</AvatarFallback>
         </Avatar>
-        <span>
-          {address?.slice(0, 6)}...{address?.slice(-4)}
-        </span>
+        {address && (
+          <span>
+            {address?.slice(0, 6)}...{address?.slice(-4)}
+          </span>
+        )}
       </Button>
       <div className="cursor-pointer" onClick={openChainModal}>
         Switch

@@ -27,10 +27,9 @@ export function ProfileCardWithForm() {
   };
 
   return (
-    <Card className="w-[400px]">
+    <Card className="w-full md:w-[400px]">
       <CardHeader>
         <CardTitle>Profile</CardTitle>
-        {/* <CardDescription>Deploy your new project in one-click.</CardDescription> */}
       </CardHeader>
       <CardContent>
         <form>
@@ -54,7 +53,7 @@ export function ProfileCardWithForm() {
               <div className="flex items-center gap-2">
                 <Input
                   id="name"
-                  placeholder="@your twitter handle"
+                  placeholder="@twitter handle"
                   value={"0xHugo.nad"}
                   disabled
                 />

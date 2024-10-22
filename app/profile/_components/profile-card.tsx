@@ -15,7 +15,7 @@ export function ProfileCardWithForm() {
   };
 
   return (
-    <Card className="w-full md:w-[400px]">
+    <Card className="w-full flex-1">
       <CardHeader className="relative">
         <CardTitle className="flex justify-between items-center gap-2">
           <span>Profile</span>
@@ -31,7 +31,7 @@ export function ProfileCardWithForm() {
                 placeholder="your username"
                 className="w-[150px]"
               />
-              <div className="absolute left-[220px] top-0 -translate-y-1/2">
+              <div className="absolute  left-[170px] md:left-[310px] top-0 -translate-y-1/2">
                 <Avatar className="w-28 h-28">
                   <AvatarImage
                     src="/images/profile/PaulC.jpg"

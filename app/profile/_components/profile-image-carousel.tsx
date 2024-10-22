@@ -14,11 +14,11 @@ import Image from "next/image";
 
 export function ProfileImageCarousel() {
   const userProfileHistoryData = [
-    { id: 1, imgSrc: "/images/profile/sample-1.png" },
-    { id: 2, imgSrc: "/images/profile/sample-2.png" },
-    { id: 3, imgSrc: "/images/profile/sample-3.png" },
-    { id: 4, imgSrc: "/images/profile/sample-4.png" },
-    { id: 5, imgSrc: "/images/profile/sample-5.png" },
+    { id: 1, imgSrc: "/images/profile/PaulC.jpg" },
+    { id: 2, imgSrc: "/images/profile/pingping.jpg" },
+    { id: 3, imgSrc: "/images/profile/ShimMoney.jpg" },
+    { id: 4, imgSrc: "/images/profile/Ssick.jpg" },
+    { id: 5, imgSrc: "/images/profile/ThisIsFin.jpg" },
   ];
   return (
     <Carousel

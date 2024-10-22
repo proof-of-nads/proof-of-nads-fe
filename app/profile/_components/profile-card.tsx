@@ -28,14 +28,14 @@ export function ProfileCardWithForm() {
               <Label htmlFor="name">Name</Label>
               <Input
                 id="name"
-                placeholder="Your username"
+                placeholder="your username"
                 className="w-[150px]"
               />
               <div className="absolute left-[220px] top-0 -translate-y-1/2">
                 <Avatar className="w-28 h-28">
                   <AvatarImage
-                    src="/images/profile/sample-1.png"
-                    className="scale-[2]"
+                    src="/images/profile/PaulC.jpg"
+                    className="scale-110"
                   />
                   <AvatarFallback>NAD</AvatarFallback>
                 </Avatar>

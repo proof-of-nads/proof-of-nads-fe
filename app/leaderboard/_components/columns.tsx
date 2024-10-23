@@ -79,6 +79,11 @@ export const columns: ColumnDef<UserRanker>[] = [
             <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(userRanker.username)}
             >
+              Copy user address
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() => navigator.clipboard.writeText(userRanker.username)}
+            >
               Copy user handle
             </DropdownMenuItem>
             <DropdownMenuSeparator />

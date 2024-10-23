@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
 import { Session } from "next-auth";
+import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
 export function ProfileCardWithForm({ session }: { session: Session | null }) {
   const user = session?.user;
@@ -51,13 +52,14 @@ export function ProfileCardWithForm({ session }: { session: Session | null }) {
                   placeholder="@twitter handle"
                 />
                 <Button
-                  className="min-w-[100px] text-sm"
+                  className="min-w-[100px] text-sm cursor-not-allowed"
                   value="twitter"
                   type="submit"
                   name="action"
+                  variant="destructive"
                   disabled
                 >
-                  Verify
+                  Verify <ExclamationTriangleIcon className="w-4 h-4" />
                 </Button>
               </div>
             </div>

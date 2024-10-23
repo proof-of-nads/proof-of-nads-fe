@@ -17,7 +17,6 @@ import {
   TooltipTrigger,
   TooltipProvider,
 } from "@/components/ui/tooltip";
-import { Separator } from "@/components/ui/separator";
 import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 
@@ -73,7 +72,7 @@ export default function ProfileDashboardCard({
           <InfoIcon className="w-5 h-5" />
         </CardTitle>
       </CardHeader>
-      <CardContent className="flex justify-between gap-7">
+      <CardContent className="flex flex-wrap justify-between gap-7">
         <div className="flex flex-col flex-1 gap-7">
           <div className="flex flex-col gap-2">
             <div className="text-lg font-semibold text-primary flex items-center gap-2">

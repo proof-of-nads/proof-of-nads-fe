@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Separator } from "@/components/ui/separator";
 import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
+import { cn } from "@/lib/utils";
 
 export default function ProfileDashboardCard({
   firstConnections,
@@ -33,30 +34,35 @@ export default function ProfileDashboardCard({
       title: "New starter",
       description: "Like 5 posts",
       icon: <BirdIcon />,
+      status: "completed",
     },
     {
       id: 5,
       title: "Photo of the day",
       description: "Post your photo",
       icon: <CameraIcon />,
+      status: "completed",
     },
     {
       id: 2,
       title: "Get likes",
       description: "Get 10 likes",
       icon: <ThumbsUpIcon />,
+      status: "active",
     },
     {
       id: 3,
       title: "Be Connected",
       description: "Connect with 5 people",
       icon: <UserPlus2Icon />,
+      status: "active",
     },
     {
       id: 4,
       title: "Nad's nad",
       description: "Connect yourself with nad",
       icon: <CrownIcon />,
+      status: "active",
     },
   ];
   return (
@@ -119,14 +125,23 @@ export default function ProfileDashboardCard({
               <QuestionMarkCircledIcon className="w-5 h-5" />
             </div>
           </div>
-          <div className="flex flex-col gap-2 ml-3 border rounded-lg p-2">
+          <div className="flex flex-col gap-2 ml-3 border border-primary bg-primary/5 rounded-lg p-2">
             {questData.map((quest) => (
               <div key={quest.id} className="flex items-center gap-2">
                 <TooltipProvider delayDuration={0}>
                   <Tooltip>
-                    <TooltipTrigger className="flex items-center gap-2">
+                    <TooltipTrigger
+                      className={cn(
+                        "flex items-center gap-2",
+                        quest.status === "completed"
+                          ? "text-foreground"
+                          : "text-muted-foreground/60"
+                      )}
+                    >
                       {quest.icon}
-                      <span>{quest.title}</span>
+                      <span className={cn("text-sm font-semibold")}>
+                        {quest.title}
+                      </span>
                     </TooltipTrigger>
                     <TooltipContent>{quest.description}</TooltipContent>
                   </Tooltip>

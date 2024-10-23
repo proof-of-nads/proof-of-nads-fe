@@ -6,17 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { signIn } from "@/auth";
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
 import { Session } from "next-auth";
 
 export function ProfileCardWithForm({ session }: { session: Session | null }) {
-  const handleDiscordLogin = () => {
-    signIn("discord");
-  };
-
   const user = session?.user;
-  console.log("🚀 ~ ProfileCardWithForm ~ user:", user);
 
   return (
     <Card className="w-full flex-1">
@@ -79,14 +73,13 @@ export function ProfileCardWithForm({ session }: { session: Session | null }) {
                   disabled
                 />
                 <Button
-                  onClick={handleDiscordLogin}
                   className="w-[100px] text-sm"
                   value="discord"
                   disabled={!!user?.name}
                   type="submit"
                   name="action"
                 >
-                  Verified
+                  {!!user?.name ? "Verified" : "Verify"}
                 </Button>
               </div>
             </div>

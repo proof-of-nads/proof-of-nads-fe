@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import {} from "@radix-ui/react-icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -16,6 +17,7 @@ export default function HeaderNavigation({
     { label: "Profile", href: "/profile" },
     { label: "Connections", href: "/connections" },
     { label: "Leaderboard", href: "/leaderboard" },
+    { label: "Docs", href: "https://baeksu.gitbook.io/proof-of-nads" },
   ];
 
   return (
@@ -35,6 +37,7 @@ export default function HeaderNavigation({
           )}
           href={link.href}
           key={link.href}
+          target={link.href.startsWith("http") ? "_blank" : "_self"}
         >
           {link.label}
         </Link>

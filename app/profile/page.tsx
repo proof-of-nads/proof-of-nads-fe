@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { InfoIcon, UserIcon, UsersIcon } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ProofImageCarousel } from "./_components/proof-image-carousel";
-import { getSession } from "next-auth/react";
 import { auth } from "@/auth";
 
 export default async function ProfilePage() {

@@ -73,8 +73,8 @@ export default function ProfileDashboardCard({
           <InfoIcon className="w-5 h-5" />
         </CardTitle>
       </CardHeader>
-      <CardContent className="flex justify-between">
-        <div className="flex flex-col gap-7">
+      <CardContent className="flex justify-between gap-7">
+        <div className="flex flex-col flex-1 gap-7">
           <div className="flex flex-col gap-2">
             <div className="text-lg font-semibold text-primary flex items-center gap-2">
               <UserIcon className="text-primary" />
@@ -116,8 +116,8 @@ export default function ProfileDashboardCard({
             </div>
           </div>
         </div>
-        <Separator orientation="vertical" className="h-full" />
-        <div className="flex flex-col gap-2">
+        {/* <Separator orientation="vertical" className="min-h-full w-[1px]" /> */}
+        <div className="flex flex-col gap-2 flex-1">
           <div className="text-lg font-semibold text-primary flex items-center gap-2">
             <TrophyIcon className="text-primary" />
             <div className="flex items-center gap-0.5">

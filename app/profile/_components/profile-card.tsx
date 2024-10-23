@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
-import { Session } from "next-auth";
+import type { Session } from "next-auth";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
 export function ProfileCardWithForm({ session }: { session: Session | null }) {

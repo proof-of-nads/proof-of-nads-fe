@@ -14,6 +14,7 @@ import {
 
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
+import { cn } from "@/lib/utils";
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 
@@ -22,6 +23,20 @@ export type UserRanker = {
   connectionCount: number;
   imgUrl?: string;
 };
+
+// const avatarRandomBg = [
+//   "#FF5733",
+//   "#33FF57",
+//   "#3357FF",
+//   "#FF33A1",
+//   "#A133FF",
+//   "#FFC300",
+//   "#00FFC3",
+//   "#C300FF",
+//   "#FF00C3",
+//   "#C3FF00",
+//   "#00C3FF",
+// ];
 
 export const columns: ColumnDef<UserRanker>[] = [
   {
@@ -48,7 +63,7 @@ export const columns: ColumnDef<UserRanker>[] = [
               src={row.original.imgUrl}
               alt={row.original.username}
             />
-            <AvatarFallback>
+            <AvatarFallback className={cn("text-black bg-gray-200")}>
               {row.original.username.slice(0, 2).toUpperCase()}
             </AvatarFallback>
           </Avatar>

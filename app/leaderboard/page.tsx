@@ -2,7 +2,12 @@ import { Separator } from "@/components/ui/separator";
 import { DataTable } from "./_components/data-table";
 import { columns } from "./_components/columns";
 
-export default function ProfilePage() {
+export default async function ProfilePage() {
+  // const response = await fetch(
+  //   "http://51.89.7.79:7777/api/leaderboard/connections"
+  // );
+
+  // const leaderboardData = await response.json();
   const leaderboardData = [
     {
       username: "baeksu",

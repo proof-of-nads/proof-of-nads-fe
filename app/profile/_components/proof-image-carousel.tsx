@@ -11,6 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 export function ProofImageCarousel() {
   const userProfileHistoryData = [
@@ -20,6 +21,7 @@ export function ProofImageCarousel() {
     { id: 4, imgSrc: "/images/proof/sample-4.png" },
     { id: 5, imgSrc: "/images/proof/sample-5.png" },
   ];
+
   return (
     <Carousel
       className="w-full max-w-5xl mx-auto"
@@ -29,25 +31,41 @@ export function ProofImageCarousel() {
       <CarouselContent>
         {userProfileHistoryData.map((historyData, index) => (
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-            <div className="p-1 h-full">
-              <Card className="h-full">
-                <CardContent className="flex aspect-[4/3] items-center justify-center p-0 rounded-lg overflow-hidden shadow-lg">
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={historyData.imgSrc}
-                      alt="profile"
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      style={{ objectFit: "cover" }}
-                      className="hover:scale-110 transition-transform duration-300"
-                    />
-                    <span className="absolute bottom-2 right-2 text-sm font-semibold text-white bg-black bg-opacity-50 px-2 py-1 rounded">
-                      {index + 1}
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            <Dialog>
+              <DialogTrigger asChild>
+                <div className="p-1 h-full cursor-pointer">
+                  <Card className="h-full">
+                    <CardContent className="flex aspect-[4/3] items-center justify-center p-0 rounded-lg overflow-hidden shadow-lg">
+                      <div className="relative w-full h-full">
+                        <Image
+                          src={historyData.imgSrc}
+                          alt="proof"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          style={{ objectFit: "cover" }}
+                          className="hover:scale-110 transition-transform duration-300"
+                        />
+                        <span className="absolute bottom-2 right-2 text-sm font-semibold text-white bg-black bg-opacity-50 px-2 py-1 rounded">
+                          {index + 1}
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </DialogTrigger>
+              <DialogContent className="min-w-[60vw] min-h-[60vh] p-0">
+                <div className="relative flex justify-center items-center h-full w-full">
+                  <Image
+                    src={historyData.imgSrc}
+                    alt="proof"
+                    width={500}
+                    height={500}
+                    className="w-full h-full max-w-[60vw] max-h-[60vh]"
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
+              </DialogContent>
+            </Dialog>
           </CarouselItem>
         ))}
       </CarouselContent>

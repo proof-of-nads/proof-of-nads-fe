@@ -149,7 +149,7 @@ export default async function ProfilePage() {
       <section className="flex  max-w-2xl lg:max-w-[1024px] w-full flex-col gap-5 p-5 ">
         <h1>Leaderboard</h1>
         <Separator />
-        <div className="container mx-auto py-10">
+        <div className="container mx-auto">
           <DataTable columns={columns} data={leaderboardData} />
         </div>
       </section>

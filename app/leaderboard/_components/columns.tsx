@@ -3,6 +3,8 @@
 import { AvatarFallback, Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { TrophyIcon } from "lucide-react";
+import { ArrowUpDown } from "lucide-react";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -74,7 +76,20 @@ export const columns: ColumnDef<UserRanker>[] = [
   },
   {
     accessorKey: "connectionCount",
-    header: "Connections",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Connections
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      return <div className="px-4">{row.original.connectionCount}</div>;
+    },
   },
   {
     id: "actions",

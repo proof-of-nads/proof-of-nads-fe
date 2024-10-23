@@ -29,8 +29,9 @@ export default function HeaderNavigation({
         <Link
           className={cn(
             "p-2",
-            isActive(link.href) && "text-primary",
-            "hover:text-primary/60 transition-colors"
+            isActive(link.href)
+              ? "text-primary"
+              : "hover:text-primary/60 transition-colors"
           )}
           href={link.href}
           key={link.href}

@@ -1,18 +1,22 @@
 "use client";
 
 import * as React from "react";
-
+import { doSocialLogin } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { signIn } from "@/auth";
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
+import { Session } from "next-auth";
 
-export function ProfileCardWithForm() {
+export function ProfileCardWithForm({ session }: { session: Session | null }) {
   const handleDiscordLogin = () => {
     signIn("discord");
   };
+
+  const user = session?.user;
+  console.log("🚀 ~ ProfileCardWithForm ~ user:", user);
 
   return (
     <Card className="w-full flex-1">
@@ -22,7 +26,7 @@ export function ProfileCardWithForm() {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <form>
+        <form action={doSocialLogin}>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col relative space-y-1.5">
               <Label htmlFor="name">Name</Label>
@@ -54,9 +58,12 @@ export function ProfileCardWithForm() {
                 />
                 <Button
                   className="min-w-[100px] text-sm"
-                  onClick={handleDiscordLogin}
+                  value="twitter"
+                  type="submit"
+                  name="action"
+                  disabled
                 >
-                  Connect
+                  Verify
                 </Button>
               </div>
             </div>
@@ -66,15 +73,18 @@ export function ProfileCardWithForm() {
               <div className="flex items-center gap-2">
                 <Input
                   id="name"
-                  placeholder="@twitter handle"
-                  value={"0xHugo.nad"}
+                  placeholder="@discord handle"
+                  value={user?.name || undefined}
                   className="w-[150px]"
                   disabled
                 />
                 <Button
-                  disabled
                   onClick={handleDiscordLogin}
                   className="w-[100px] text-sm"
+                  value="discord"
+                  disabled={!!user?.name}
+                  type="submit"
+                  name="action"
                 >
                   Verified
                 </Button>

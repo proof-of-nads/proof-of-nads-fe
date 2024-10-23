@@ -1,6 +1,7 @@
 "use client";
 
 import AppRainbowKitProvider from "./app-rainbow-kit-provider";
+import AuthProvider from "./auth-provider";
 import ThemeProvider from "./theme-provider";
 
 export default function Providers({
@@ -12,7 +13,11 @@ export default function Providers({
 }) {
   return (
     <ThemeProvider>
-      <AppRainbowKitProvider cookie={cookie}>{children}</AppRainbowKitProvider>
+      <AuthProvider>
+        <AppRainbowKitProvider cookie={cookie}>
+          {children}
+        </AppRainbowKitProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 }

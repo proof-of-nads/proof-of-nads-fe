@@ -13,14 +13,15 @@ import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import ConnectBtn from "../connect-button";
+import { useState } from "react";
 
 export default function HamburgerMenu() {
   const { isConnected, address, chain } = useAccount();
   const { disconnect } = useDisconnect();
-  console.log(isConnected, address, chain);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
-    <Drawer direction="right">
+    <Drawer direction="right" open={drawerOpen} onOpenChange={setDrawerOpen}>
       <DrawerTrigger className="lg:hidden" asChild>
         <HamburgerMenuIcon
           width={24}

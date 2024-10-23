@@ -2,26 +2,29 @@ import { Separator } from "@/components/ui/separator";
 import { ProfileCardWithForm } from "./_components/profile-card";
 import { ProfileImageCarousel } from "./_components/profile-image-carousel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { UserIcon, UsersIcon } from "lucide-react";
+import { InfoIcon, UserIcon, UsersIcon } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ProofImageCarousel } from "./_components/proof-image-carousel";
+import { getSession } from "next-auth/react";
+import { auth } from "@/auth";
 
-export default function ProfilePage() {
+export default async function ProfilePage() {
   const userFirstConnections = [
-    { id: 1, imgSrc: "/images/profile/PaulC.jpg" },
-    { id: 2, imgSrc: "/images/profile/pingping.jpg" },
     { id: 3, imgSrc: "/images/profile/ThisIsFin.jpg" },
-    { id: 4, imgSrc: "/images/profile/Ssick.jpg" },
     { id: 4, imgSrc: "/" },
+    { id: 2, imgSrc: "/images/profile/pingping.jpg" },
+    { id: 4, imgSrc: "/images/profile/Ssick.jpg" },
   ];
 
   const userSecondConnections = [
-    { id: 1, imgSrc: "/images/profile/PaulC.jpg" },
-    { id: 2, imgSrc: "/images/profile/pingping.jpg" },
     { id: 3, imgSrc: "/images/profile/ThisIsFin.jpg" },
-    { id: 4, imgSrc: "/images/profile/Ssick.jpg" },
+    { id: 2, imgSrc: "/images/profile/pingping.jpg" },
     { id: 4, imgSrc: "/images/pile/Ssick.jpg" },
+    { id: 4, imgSrc: "/images/profile/Ssick.jpg" },
   ];
+
+  const session = await auth();
+
   return (
     <>
       <section className="flex  max-w-2xl lg:max-w-[1024px] w-full flex-col gap-5 p-5 ">
@@ -29,10 +32,13 @@ export default function ProfilePage() {
         <Separator />
         <div className="flex flex-col gap-2">
           <div className="flex flex-col lg:flex-row gap-4">
-            <ProfileCardWithForm />
+            <ProfileCardWithForm session={session} />
             <Card className="flex-1">
               <CardHeader className="pb-3">
-                <CardTitle>Connection Statistic</CardTitle>
+                <CardTitle className="flex gap-1 items-center">
+                  <span>Connection Statistic</span>
+                  <InfoIcon className="w-5 h-5" />
+                </CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col gap-7">
                 <div className="flex flex-col gap-2">
@@ -74,7 +80,7 @@ export default function ProfilePage() {
                     ))}
                     <Avatar className="w-14 h-14">
                       <AvatarFallback className="bg-background">
-                        +11
+                        +4
                       </AvatarFallback>
                     </Avatar>
                   </div>

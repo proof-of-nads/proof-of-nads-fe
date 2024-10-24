@@ -25,7 +25,7 @@ export default function ProfileGuestBookCard() {
       fromUser: {
         userName: "baeksu",
         imgSrc: "/images/profile/baeksu.png",
-        monadRole: "Nad",
+        monadRole: "mon2",
         certified: true,
       },
       contents:
@@ -37,7 +37,7 @@ export default function ProfileGuestBookCard() {
       fromUser: {
         userName: "Ssick",
         imgSrc: "/images/profile/Ssick.jpg",
-        monadRole: "Monad",
+        monadRole: "mon",
         certified: false,
       },
       contents:
@@ -61,6 +61,9 @@ export default function ProfileGuestBookCard() {
             <div className="flex gap-2 items-center text-primary font-semibold">
               <span className="text-base">{guestbook.fromUser.userName}</span>
               <span className="text-sm text-gray-500">({guestbook.date})</span>
+              <span className="text-xs bg-primary p-0.5 px-1 rounded-md text-background">
+                {guestbook.fromUser.monadRole}
+              </span>
               {guestbook.fromUser.certified && (
                 <TooltipProvider delayDuration={100}>
                   <Tooltip>

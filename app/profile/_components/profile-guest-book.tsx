@@ -113,9 +113,7 @@ export default function ProfileGuestBookCard() {
               </div>
             </div>
 
-            {index !== userGuestbookData.length - 1 && (
-              <Separator className="mt-4" />
-            )}
+            {index !== userGuestbookData.length - 1 && <Separator />}
           </div>
         ))}
       </CardContent>

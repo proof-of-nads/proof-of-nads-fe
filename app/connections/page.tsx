@@ -1,3 +1,9 @@
+import { ControlNetworkGraph } from "./_components/control-netowrk-graph";
+
 export default function ConnectionsPage() {
-  return <div>ConnectionsPage</div>;
+  return (
+    <div>
+      <ControlNetworkGraph />
+    </div>
+  );
 }

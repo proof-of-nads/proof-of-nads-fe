@@ -14,15 +14,17 @@ import "@react-sigma/core/lib/react-sigma.min.css";
 import { SampleGraph } from "./sample-graph";
 import { LayoutsControl } from "./layout-control";
 
-export const ControlNetworkGraph: FC<{ style?: CSSProperties }> = ({
-  style,
-}) => {
+export const ControlNetworkGraph: FC<{ style?: CSSProperties }> = (
+  {
+    // style,
+  }
+) => {
   return (
     <SigmaContainer
-      // className="w-[900px] h-[900px]"
+      className="max-w-[900px] max-h-[900px]"
       style={{
-        width: "900px",
-        height: "900px",
+        width: "1000px",
+        height: "1000px",
         backgroundColor: "transparent",
       }}
       settings={{ allowInvalidContainer: true }}

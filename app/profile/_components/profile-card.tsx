@@ -58,7 +58,8 @@ export function ProfileCardWithForm({ session }: { session: Session | null }) {
                 <Input
                   id="name"
                   className="w-[150px]"
-                  placeholder="@twitter handle"
+                  placeholder="Verify Twitter"
+                  disabled
                 />
                 <Button
                   className="min-w-[100px] text-sm cursor-not-allowed"
@@ -74,7 +75,7 @@ export function ProfileCardWithForm({ session }: { session: Session | null }) {
             </div>
 
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Discord User</Label>
+              <Label htmlFor="name">Discord Handle</Label>
               <div className="flex items-center gap-2">
                 <Input
                   id="name"

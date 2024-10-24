@@ -72,10 +72,10 @@ export default function ProfileGuestBookCard() {
                 </TooltipProvider>
               )}
             </div>
-            <div className="flex gap-8 pl-3">
+            <div className="flex gap-8 pl-3 ">
               <DropdownMenu>
-                <DropdownMenuTrigger>
-                  <div className="relative">
+                <DropdownMenuTrigger asChild>
+                  <div className="relative flex">
                     <Avatar className="w-16 h-16 lg:hover:scale-110 transition-all duration-300">
                       <AvatarImage src={guestbook.fromUser.imgSrc} />
                       <AvatarFallback>

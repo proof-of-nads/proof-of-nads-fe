@@ -23,7 +23,7 @@ import { cn } from "@/lib/utils";
 export type UserRanker = {
   username: string;
   connectionCount: number;
-  imgUrl?: string;
+  profilePicture?: string;
 };
 
 // const avatarRandomBg = [
@@ -62,7 +62,7 @@ export const columns: ColumnDef<UserRanker>[] = [
         <div className="flex items-center gap-2">
           <Avatar>
             <AvatarImage
-              src={row.original.imgUrl}
+              src={row.original.profilePicture}
               alt={row.original.username}
             />
             <AvatarFallback className={cn("text-black bg-gray-200")}>

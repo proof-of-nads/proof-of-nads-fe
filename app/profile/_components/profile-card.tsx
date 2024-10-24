@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
 import type { Session } from "next-auth";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import { CrownIcon } from "lucide-react";
 
 export function ProfileCardWithForm({ session }: { session: Session | null }) {
   const user = session?.user;
@@ -40,6 +41,12 @@ export function ProfileCardWithForm({ session }: { session: Session | null }) {
                 <span className="border lg:hover:bg-purple-500 border-black cursor-pointer lg:hover:bg-primary transition-colors flex items-center absolute bottom-2 -right-3.5 bg-destructive text-white text-[12px] rounded-lg px-3.5 py-1.5 leading-none">
                   Edit
                 </span>
+                {user?.name && (
+                  <span className="flex top-0 mt-2 gap-2 items-center absolute left-3 -translate-x-1/2 text-md bg-primary p-0.5 px-1 rounded-md text-background">
+                    <CrownIcon className="w-4 h-4 " />
+                    mon2
+                  </span>
+                )}
               </div>
             </div>
             <div className="flex flex-col space-y-1.5">

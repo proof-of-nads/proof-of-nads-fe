@@ -32,13 +32,12 @@ export function ProfileCardWithForm({ session }: { session: Session | null }) {
               />
               <div className="absolute  left-[170px] md:left-[310px] top-0 -translate-y-1/2">
                 <Avatar className="w-28 h-28">
-                  <AvatarImage
-                    src="/images/profile/PaulC.jpg"
-                    className="scale-110"
-                  />
-                  <AvatarFallback>NAD</AvatarFallback>
+                  <AvatarImage src={user?.image || ""} className="scale-110" />
+                  <AvatarFallback className="bg-primary text-white font-bold text-xl">
+                    NAD
+                  </AvatarFallback>
                 </Avatar>
-                <span className="border hover:bg-purple-500 border-black cursor-pointer hover:bg-primary transition-colors flex items-center absolute bottom-2 -right-3.5 bg-destructive text-white text-[12px] rounded-lg px-3.5 py-1.5 leading-none">
+                <span className="border lg:hover:bg-purple-500 border-black cursor-pointer lg:hover:bg-primary transition-colors flex items-center absolute bottom-2 -right-3.5 bg-destructive text-white text-[12px] rounded-lg px-3.5 py-1.5 leading-none">
                   Edit
                 </span>
               </div>
@@ -81,7 +80,7 @@ export function ProfileCardWithForm({ session }: { session: Session | null }) {
                   type="submit"
                   name="action"
                 >
-                  {!!user?.name ? "Verified" : "Verify"}
+                  {!!user?.name ? "Verified!" : "Verify"}
                 </Button>
               </div>
             </div>

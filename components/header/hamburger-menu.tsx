@@ -26,7 +26,7 @@ export default function HamburgerMenu() {
         <HamburgerMenuIcon
           width={24}
           height={24}
-          className="cursor-pointer hover:opacity-80 transition-opacity"
+          className="cursor-pointer lg:hover:opacity-80 transition-opacity"
         />
       </DrawerTrigger>
       <DrawerContent className="h-full rounded-r-none w-full max-w-[300px] p-5 flex flex-col">

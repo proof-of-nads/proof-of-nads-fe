@@ -44,7 +44,7 @@ export function ProfileImageCarousel() {
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             style={{ objectFit: "cover" }}
-                            className="hover:scale-110 transition-transform duration-300"
+                            className="lg:hover:scale-110 transition-transform duration-300"
                           />
                           <span className="absolute bottom-2 right-2 text-sm font-semibold text-white bg-black bg-opacity-50 px-2 py-1 rounded">
                             {index + 1}

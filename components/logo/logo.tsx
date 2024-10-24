@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Logo() {
   return (
-    <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+    <div className="flex items-center gap-2 cursor-pointer lg:hover:opacity-80 transition-opacity">
       <Image
         src="/icons/icon-pon-logo.webp"
         alt="Proof of Nads"

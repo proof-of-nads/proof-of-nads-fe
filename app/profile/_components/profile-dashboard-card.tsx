@@ -83,7 +83,7 @@ export default function ProfileDashboardCard({
               {firstConnections.map((connection) => (
                 <Avatar
                   key={connection.id}
-                  className="w-14 h-14 hover:scale-110 transition-all duration-300"
+                  className="w-14 h-14 lg:hover:scale-110 transition-all duration-300"
                 >
                   <AvatarImage src={connection.imgSrc} />
                   <AvatarFallback>CN</AvatarFallback>
@@ -103,7 +103,7 @@ export default function ProfileDashboardCard({
               {secondConnections.map((connection) => (
                 <Avatar
                   key={connection.id}
-                  className="w-14 h-14 hover:scale-110 transition-all duration-300"
+                  className="w-14 h-14 lg:hover:scale-110 transition-all duration-300"
                 >
                   <AvatarImage src={connection.imgSrc} />
                   <AvatarFallback>ET</AvatarFallback>

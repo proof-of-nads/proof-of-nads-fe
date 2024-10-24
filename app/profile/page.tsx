@@ -4,6 +4,7 @@ import { ProfileImageCarousel } from "./_components/profile-image-carousel";
 import { ProofImageCarousel } from "./_components/proof-image-carousel";
 import { auth } from "@/auth";
 import ProfileDashboardCard from "./_components/profile-dashboard-card";
+import ProfileGuestBookCard from "./_components/profile-guest-book";
 
 export default async function ProfilePage() {
   const userFirstConnections = [
@@ -24,7 +25,7 @@ export default async function ProfilePage() {
 
   return (
     <>
-      <section className="flex  max-w-2xl lg:max-w-[1024px] w-full flex-col gap-5 p-5 ">
+      <section className="flex max-w-2xl lg:max-w-[1024px] w-full flex-col gap-5 p-5 ">
         <h1>Your Profile</h1>
         <Separator />
         <div className="flex flex-col gap-2">
@@ -36,6 +37,9 @@ export default async function ProfilePage() {
             />
           </div>
         </div>
+      </section>
+      <section className="flex max-w-2xl lg:max-w-[1024px] w-full gap-5 p-5 pt-1 ">
+        <ProfileGuestBookCard />
       </section>
       <section className="w-full max-w-[1024px]  items-center flex flex-col">
         <h3 className="px-5 font-bold max-w-2xl lg:max-w-[1024px] w-full">

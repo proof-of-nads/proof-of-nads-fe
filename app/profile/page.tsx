@@ -8,17 +8,17 @@ import ProfileGuestBookCard from "./_components/profile-guest-book";
 
 export default async function ProfilePage() {
   const userFirstConnections = [
-    { id: 3, imgSrc: "/images/profile/ThisIsFin.jpg" },
-    { id: 4, imgSrc: "/" },
-    { id: 2, imgSrc: "/images/profile/pingping.jpg" },
+    { id: 1, imgSrc: "/images/profile/ThisIsFin.jpg" },
+    { id: 2, imgSrc: "/images/profile/Shuwski.jpg" },
+    { id: 3, imgSrc: "/images/profile/Shimmoney.jpg" },
     { id: 4, imgSrc: "/images/profile/Ssick.jpg" },
   ];
 
   const userSecondConnections = [
-    { id: 3, imgSrc: "/images/profile/ThisIsFin.jpg" },
-    { id: 2, imgSrc: "/images/profile/pingping.jpg" },
-    { id: 4, imgSrc: "/images/pile/Ssick.jpg" },
-    { id: 4, imgSrc: "/images/profile/Ssick.jpg" },
+    { id: 5, imgSrc: "/images/profile/whitesocks.jpg" },
+    { id: 6, imgSrc: "/images/profile/pingping.jpg" },
+    { id: 7, imgSrc: "/images/profile/HB.png" },
+    { id: 8, imgSrc: "/images/profile/Jeongnam.png" },
   ];
 
   const session = await auth();

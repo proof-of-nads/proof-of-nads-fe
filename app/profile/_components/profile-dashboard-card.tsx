@@ -110,7 +110,7 @@ export default function ProfileDashboardCard({
                 </Avatar>
               ))}
               <Avatar className="w-14 h-14">
-                <AvatarFallback className="bg-background">+4</AvatarFallback>
+                <AvatarFallback className="bg-background">+2</AvatarFallback>
               </Avatar>
             </div>
           </div>

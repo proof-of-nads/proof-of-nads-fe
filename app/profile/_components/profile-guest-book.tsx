@@ -25,7 +25,7 @@ export default function ProfileGuestBookCard() {
       fromUser: {
         userName: "baeksu",
         imgSrc: "/images/profile/baeksu.png",
-        monadRole: "mon2",
+        monadRole: "localnads",
         certified: true,
       },
       contents:
@@ -37,7 +37,7 @@ export default function ProfileGuestBookCard() {
       fromUser: {
         userName: "Ssick",
         imgSrc: "/images/profile/Ssick.jpg",
-        monadRole: "mon",
+        monadRole: "mon2",
         certified: false,
       },
       contents:

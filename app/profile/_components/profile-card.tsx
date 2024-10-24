@@ -33,7 +33,10 @@ export function ProfileCardWithForm({ session }: { session: Session | null }) {
               />
               <div className="absolute  left-[170px] md:left-[310px] top-0 -translate-y-1/2">
                 <Avatar className="w-28 h-28">
-                  <AvatarImage src={user?.image || ""} className="scale-110" />
+                  <AvatarImage
+                    src={user?.name ? "/images/profile/PaulC.jpg" : ""}
+                    className="scale-110"
+                  />
                   <AvatarFallback className="bg-primary text-white font-bold text-xl">
                     NAD
                   </AvatarFallback>
@@ -76,7 +79,7 @@ export function ProfileCardWithForm({ session }: { session: Session | null }) {
                 <Input
                   id="name"
                   placeholder="@discord handle"
-                  value={user?.name || undefined}
+                  value={user?.name ? "PaulC" : undefined}
                   className="w-[150px]"
                   disabled
                 />

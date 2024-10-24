@@ -42,7 +42,7 @@ export function ProfileCardWithForm({ session }: { session: Session | null }) {
                   Edit
                 </span>
                 {user?.name && (
-                  <span className="flex top-0 mt-2 gap-2 items-center absolute left-3 -translate-x-1/2 text-md bg-primary p-0.5 px-1 rounded-md text-background">
+                  <span className="flex top-0 mt-2 gap-2 items-center absolute left-3 -translate-x-1/2 text-sm bg-primary p-0.5 px-1 rounded-md text-white">
                     <CrownIcon className="w-4 h-4 " />
                     mon2
                   </span>

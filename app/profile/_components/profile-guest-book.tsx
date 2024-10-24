@@ -79,7 +79,7 @@ export default function ProfileGuestBookCard() {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <div className="relative flex">
-                    <Avatar className="w-16 h-16 lg:hover:scale-110 transition-all duration-300">
+                    <Avatar className="w-16 h-16 cursor-pointer lg:hover:scale-110 transition-all duration-300">
                       <AvatarImage src={guestbook.fromUser.imgSrc} />
                       <AvatarFallback>
                         {guestbook.fromUser.userName.slice(0, 2)}

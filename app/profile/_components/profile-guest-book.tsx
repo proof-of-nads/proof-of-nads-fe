@@ -15,7 +15,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { BadgeCheckIcon } from "lucide-react";
+import { BadgeCheckIcon, ReplyIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 export default function ProfileGuestBookCard() {
@@ -24,7 +24,7 @@ export default function ProfileGuestBookCard() {
       id: 123123454,
       fromUser: {
         userName: "baeksu",
-        imgSrc: "/images/profile/pingping.jpg",
+        imgSrc: "/images/profile/baeksu.png",
         monadRole: "Nad",
         certified: true,
       },
@@ -98,10 +98,18 @@ export default function ProfileGuestBookCard() {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <div key={guestbook.date} className="leading-tight text-base">
+              <div
+                key={guestbook.date}
+                className="flex flex-col leading-tight text-base"
+              >
                 <p>{guestbook.contents}</p>
+                <div className="cursor-pointer flex items-end gap-1 self-end text-gray-500 lg:hover:text-primary lg:transition-all lg:duration-300">
+                  <span className="text-sm">Reply</span>
+                  <ReplyIcon className="w-3.5 h-3.5 rotate-180" />
+                </div>
               </div>
             </div>
+
             {index !== userGuestbookData.length - 1 && (
               <Separator className="mt-4" />
             )}

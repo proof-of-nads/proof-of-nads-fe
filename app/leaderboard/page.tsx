@@ -5,7 +5,7 @@ import { columns, UserRanker } from "./_components/columns";
 export default async function ProfilePage() {
   const response = await fetch(
     "http://51.89.7.79:7777/api/leaderboard/connections",
-    { cache: "no-cache" }
+    { next: { revalidate: 60 } }
   );
 
   const leaderboardData: UserRanker[] = await response.json();

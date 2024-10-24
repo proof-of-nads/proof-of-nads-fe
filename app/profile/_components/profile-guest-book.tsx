@@ -82,18 +82,6 @@ export default function ProfileGuestBookCard() {
                         {guestbook.fromUser.userName.slice(0, 2)}
                       </AvatarFallback>
                     </Avatar>
-                    <span className="absolute bottom-0 right-0 translate-x-2">
-                      {guestbook.fromUser.certified && (
-                        <TooltipProvider delayDuration={100}>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <BadgeCheckIcon className="w-5 h-5 text-green-700" />
-                            </TooltipTrigger>
-                            <TooltipContent>Certified!</TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      )}
-                    </span>
                   </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">

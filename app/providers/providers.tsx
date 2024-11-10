@@ -11,13 +11,11 @@ export default function Providers({
   children: React.ReactNode;
   cookie: string;
 }) {
-  console.log('🚀 ~ cookie:', cookie)
+  console.log("🚀 ~ cookie:", cookie);
   return (
     <ThemeProvider>
       <AuthProvider>
-        <AppRainbowKitProvider cookie={cookie}>
-          {children}
-        </AppRainbowKitProvider>
+        <AppRainbowKitProvider>{children}</AppRainbowKitProvider>
       </AuthProvider>
     </ThemeProvider>
   );

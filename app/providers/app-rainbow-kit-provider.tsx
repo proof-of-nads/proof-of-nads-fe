@@ -4,7 +4,7 @@ import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import {
   cookieStorage,
-  cookieToInitialState,
+  // cookieToInitialState,
   createStorage,
   WagmiProvider,
 } from "wagmi";
@@ -36,10 +36,10 @@ const queryClient = new QueryClient();
 
 export default function AppRainbowKitProvider({
   children,
-  cookie,
-}: {
+}: // cookie,
+{
   children: React.ReactNode;
-  cookie: string;
+  // cookie: string;
 }) {
   // const initialState = cookieToInitialState(config, cookie);
 

@@ -15,7 +15,11 @@ import { cn } from "@/lib/utils";
 import ConnectBtn from "../connect-button";
 import { useState } from "react";
 
-export default function HamburgerMenu({ isConnected }: { isConnected: boolean }) {
+export default function HamburgerMenu({
+  isConnected,
+}: {
+  isConnected: boolean;
+}) {
   const { address, chain } = useAccount();
   const { disconnect } = useDisconnect();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -55,7 +59,7 @@ export default function HamburgerMenu({ isConnected }: { isConnected: boolean })
               Disconnect
             </Button>
           ) : (
-            <ConnectBtn />
+            <ConnectBtn isConnected={isConnected} />
           )}
         </div>
         <HeaderNavigation className="pt-4 text-xl items-start" />

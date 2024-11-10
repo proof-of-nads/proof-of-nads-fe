@@ -17,8 +17,11 @@ export default async function Header() {
       </div>
       <div className="flex items-center gap-2">
         <ThemeToggle />
-        <ConnectButton className="hidden lg:flex" isConnected={isConnected} />
-        <HamburgerMenu isConnected={isConnected} />
+        <ConnectButton
+          className="hidden lg:flex"
+          isConnected={isConnected ?? false}
+        />
+        <HamburgerMenu isConnected={isConnected ?? false} />
       </div>
     </header>
   );

@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { cn } from "@/lib/utils";
 import { doLogout, doSocialLogin } from "@/app/actions";
-import { signOut } from "@/auth";
+// import { signOut } from "@/auth";
 
 import { useSession } from "next-auth/react";
 
@@ -42,7 +42,7 @@ export const ConnectBtn = ({
     <form className="flex items-center gap-2" action={doSocialLogin}>
       <Button
         className={cn(
-          "flex justify-start items-center gap-2 min-w-[160px]",
+          "flex justify-start items-center gap-2 min-w-[160px] text-base",
           className
         )}
         type="submit"

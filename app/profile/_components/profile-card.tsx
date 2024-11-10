@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
 import type { Session } from "next-auth";
-import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+// import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import { CrownIcon } from "lucide-react";
 import { UserData } from "@/app/profile/page";
 

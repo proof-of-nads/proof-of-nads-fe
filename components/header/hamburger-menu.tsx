@@ -15,8 +15,8 @@ import { cn } from "@/lib/utils";
 import ConnectBtn from "../connect-button";
 import { useState } from "react";
 
-export default function HamburgerMenu() {
-  const { isConnected, address, chain } = useAccount();
+export default function HamburgerMenu({ isConnected }: { isConnected: boolean }) {
+  const { address, chain } = useAccount();
   const { disconnect } = useDisconnect();
   const [drawerOpen, setDrawerOpen] = useState(false);
 

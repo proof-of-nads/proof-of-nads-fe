@@ -39,6 +39,7 @@ export function ProfileCardWithForm({
                 id="name"
                 placeholder="your username"
                 className="w-[150px]"
+                value={user?.name ?? undefined}
               />
               <div className="absolute  left-[170px] md:left-[310px] top-0 -translate-y-1/2">
                 <Avatar className="w-28 h-28">
@@ -61,27 +62,6 @@ export function ProfileCardWithForm({
                 )}
               </div>
             </div>
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Twitter Handle</Label>
-              <div className="flex items-center gap-2">
-                <Input
-                  id="name"
-                  className="w-[150px]"
-                  placeholder="Verify Twitter"
-                  disabled
-                />
-                <Button
-                  className="min-w-[100px] text-sm cursor-not-allowed"
-                  value="twitter"
-                  type="submit"
-                  name="action"
-                  variant="destructive"
-                  disabled
-                >
-                  Verify <ExclamationTriangleIcon className="w-4 h-4" />
-                </Button>
-              </div>
-            </div>
 
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">Discord Handle</Label>
@@ -89,7 +69,7 @@ export function ProfileCardWithForm({
                 <Input
                   id="name"
                   placeholder="@discord handle"
-                  value={user?.name ? "PaulC" : undefined}
+                  value={user?.name ?? undefined}
                   className="w-[150px]"
                   disabled
                 />

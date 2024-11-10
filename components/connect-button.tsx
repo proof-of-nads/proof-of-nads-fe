@@ -1,81 +1,57 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import {
-  useConnectModal,
-  useAccountModal,
-  useChainModal,
-} from "@rainbow-me/rainbowkit";
-import { useAccount, useDisconnect } from "wagmi";
 import { Button } from "./ui/button";
-import { Avatar, AvatarFallback } from "./ui/avatar";
+import { Avatar, AvatarImage } from "./ui/avatar";
 import { cn } from "@/lib/utils";
+import { doLogout, doSocialLogin } from "@/app/actions";
+import { signOut } from "@/auth";
 
-export const ConnectBtn = ({ className }: { className?: string }) => {
-  const { isConnecting, isConnected, chain, address } = useAccount();
+import { useSession } from "next-auth/react";
 
-  const { openConnectModal } = useConnectModal();
-  const { openAccountModal } = useAccountModal();
-  const { openChainModal } = useChainModal();
-  const { disconnect } = useDisconnect();
+export const ConnectBtn = ({
+  className,
+  isConnected,
+}: {
+  className?: string;
+  isConnected: boolean;
+}) => {
+  console.log("🚀 ~ isConnected:", isConnected);
+  const { data: session } = useSession();
+  console.log("🚀 ~ ConnectBtn ~ session:", session);
 
-  const isMounted = useRef(false);
-
-  useEffect(() => {
-    isMounted.current = true;
-  }, []);
-
-  if (!isConnected) {
+  if (isConnected) {
     return (
       <Button
         onClick={async () => {
           // Disconnecting wallet first because sometimes when is connected but the user is not connected
-          if (isConnected) {
-            disconnect();
-          }
-          openConnectModal?.();
+          await doLogout();
+          return;
         }}
-        disabled={isConnecting}
+        // disabled={isConnecting}
         className={cn("md:min-w-[160px] text-base", className)}
       >
-        {isConnecting ? "Connecting..." : "Connect wallet"}
-      </Button>
-    );
-  }
-
-  if (isConnected && !chain) {
-    return (
-      <Button
-        className={cn("min-w-[160px]", className)}
-        onClick={openChainModal}
-      >
-        Wrong network
+        <Avatar className="w-6 h-6 text-xs ">
+          <AvatarImage src={session?.user?.image ?? ""} />
+        </Avatar>
+        Logout PoN
       </Button>
     );
   }
 
   return (
-    <div className="flex items-center gap-2">
+    <form className="flex items-center gap-2" action={doSocialLogin}>
       <Button
         className={cn(
-          "flex items-center justify-between min-w-[160px]",
+          "flex justify-start items-center gap-2 min-w-[160px]",
           className
         )}
-        onClick={async () => openAccountModal?.()}
+        type="submit"
+        value="discord"
+        name="action"
       >
-        <Avatar className="w-6 h-6 text-xs">
-          <AvatarFallback className=" bg-white text-black">LC</AvatarFallback>
-        </Avatar>
-        {address && (
-          <span>
-            {address?.slice(0, 6)}...{address?.slice(-4)}
-          </span>
-        )}
+        Connect Discord
       </Button>
-      <div className="cursor-pointer" onClick={openChainModal}>
-        Switch
-      </div>
-    </div>
+    </form>
   );
 };
 

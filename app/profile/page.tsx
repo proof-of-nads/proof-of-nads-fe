@@ -100,21 +100,23 @@ export default async function ProfilePage() {
         </div>
       </section>
       <section className="flex max-w-2xl lg:max-w-[1024px] w-full gap-5 p-5 pt-1 ">
-        <ProfileGuestBookCard guestBook={userData.guestBook} />
+        <ProfileGuestBookCard guestBook={userData?.guestBook ?? []} />
       </section>
       <section className="w-full max-w-[1024px]  items-center flex flex-col">
         <h3 className="px-5 font-bold max-w-2xl lg:max-w-[1024px] w-full">
           Profile Gallery
         </h3>
         <ProfileImageCarousel
-          userProfileHistoryData={userData.profileHistory}
+          userProfileHistoryData={userData?.profileHistory ?? []}
         />
       </section>
       <section className="w-full max-w-[1024px] mt-5  items-center flex flex-col">
         <h3 className="font-bold px-5 max-w-2xl lg:max-w-[1024px] w-full">
           Proof Gallery
         </h3>
-        <ProofImageCarousel userProfileHistoryData={userData.proofHistory} />
+        <ProofImageCarousel
+          userProfileHistoryData={userData?.proofHistory ?? []}
+        />
       </section>
     </>
   );

@@ -17,7 +17,6 @@ import {
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Skeleton } from "@/components/ui/skeleton";
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 

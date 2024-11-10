@@ -11,6 +11,7 @@ export default function Providers({
   children: React.ReactNode;
   cookie: string;
 }) {
+  console.log('🚀 ~ cookie:', cookie)
   return (
     <ThemeProvider>
       <AuthProvider>

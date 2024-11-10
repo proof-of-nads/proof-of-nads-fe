@@ -41,10 +41,10 @@ export default function AppRainbowKitProvider({
   children: React.ReactNode;
   cookie: string;
 }) {
-  const initialState = cookieToInitialState(config, cookie);
+  // const initialState = cookieToInitialState(config, cookie);
 
   return (
-    <WagmiProvider config={config} {...(initialState ? { initialState } : {})}>
+    <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider>{children}</RainbowKitProvider>
       </QueryClientProvider>

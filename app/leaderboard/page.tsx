@@ -9,6 +9,7 @@ export default async function ProfilePage() {
   );
 
   const leaderboardData: UserRanker[] = await response.json();
+  console.log(leaderboardData);
   // const leaderboardData = [
   //   {
   //     username: "baeksu",

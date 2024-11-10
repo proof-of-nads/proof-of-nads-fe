@@ -1,0 +1,11 @@
+
+POST http://51.89.7.79:7777/api/auth/signup
+CONTENT-TYPE: application/json
+
+{
+  "username": "test",
+  "discord_id": "test",
+  "email": "test",
+  "current_profile_picture": "test",
+  "wallet_address": "test"
+}

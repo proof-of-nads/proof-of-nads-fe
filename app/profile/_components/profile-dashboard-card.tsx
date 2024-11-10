@@ -64,6 +64,9 @@ export default function ProfileDashboardCard({
       status: "active",
     },
   ];
+
+  const shouldShowFirstConnections = firstConnections.length > 0;
+  const shouldShowSecondConnections = secondConnections.length > 0;
   return (
     <Card className="flex-1">
       <CardHeader className="pb-3">
@@ -80,17 +83,26 @@ export default function ProfileDashboardCard({
               <span> 1st Connections : 15</span>
             </div>
             <div className="flex -space-x-4">
-              {firstConnections.map((connection) => (
-                <Avatar
-                  key={connection.id}
-                  className="w-14 h-14 lg:hover:scale-110 transition-all duration-300"
-                >
-                  <AvatarImage src={connection.imgSrc} />
-                  <AvatarFallback>CN</AvatarFallback>
+              {shouldShowFirstConnections ? (
+                firstConnections.map((connection) => (
+                  <Avatar
+                    key={connection.id}
+                    className="w-14 h-14 lg:hover:scale-110 transition-all duration-300"
+                  >
+                    <AvatarImage src={connection.imgSrc} />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                ))
+              ) : (
+                <Avatar className="w-14 h-14 lg:hover:scale-110 transition-all duration-300">
+                  <AvatarImage />
+                  <AvatarFallback>NAD</AvatarFallback>
                 </Avatar>
-              ))}
+              )}
               <Avatar className="w-14 h-14">
-                <AvatarFallback className="bg-background ">+11</AvatarFallback>
+                <AvatarFallback className="bg-background ">
+                  {shouldShowFirstConnections ? "+11" : "ADD"}
+                </AvatarFallback>
               </Avatar>
             </div>
           </div>
@@ -100,18 +112,23 @@ export default function ProfileDashboardCard({
               <span> 2nd Connections : 6</span>
             </div>
             <div className="flex -space-x-4">
-              {secondConnections.map((connection) => (
-                <Avatar
-                  key={connection.id}
-                  className="w-14 h-14 lg:hover:scale-110 transition-all duration-300"
-                >
-                  <AvatarImage src={connection.imgSrc} />
-                  <AvatarFallback>ET</AvatarFallback>
+              {shouldShowSecondConnections ? (
+                secondConnections.map((connection) => (
+                  <Avatar
+                    key={connection.id}
+                    className="w-14 h-14 lg:hover:scale-110 transition-all duration-300"
+                  >
+                    <AvatarImage src={connection.imgSrc} />
+                    <AvatarFallback>ET</AvatarFallback>
+                  </Avatar>
+                ))
+              ) : (
+                <Avatar className="w-14 h-14">
+                  <AvatarFallback className="bg-background">
+                    {shouldShowSecondConnections ? "+2" : "ADD"}
+                  </AvatarFallback>
                 </Avatar>
-              ))}
-              <Avatar className="w-14 h-14">
-                <AvatarFallback className="bg-background">+2</AvatarFallback>
-              </Avatar>
+              )}
             </div>
           </div>
         </div>

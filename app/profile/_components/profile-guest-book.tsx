@@ -17,8 +17,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { BadgeCheckIcon, ReplyIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { GuestBook } from "../page";
 
-export default function ProfileGuestBookCard() {
+export default function ProfileGuestBookCard({
+  guestBook,
+}: {
+  guestBook: GuestBook[];
+}) {
   const userGuestbookData = [
     {
       id: 123123454,
@@ -45,6 +50,9 @@ export default function ProfileGuestBookCard() {
       date: "2024-10-25 09:45",
     },
   ];
+
+  const shouldEmptyGuestBook = guestBook.length === 0;
+
   return (
     <Card className="w-full flex-1">
       <CardHeader className="relative">
@@ -56,37 +64,15 @@ export default function ProfileGuestBookCard() {
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-6">
-        {userGuestbookData.map((guestbook, index) => (
-          <div key={guestbook.id} className="flex flex-col gap-2">
+        {shouldEmptyGuestBook ? (
+          <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center text-primary font-semibold">
-              <span className="text-base">{guestbook.fromUser.userName}</span>
-              <span className="text-sm text-gray-500">({guestbook.date})</span>
-              <span className="text-xs bg-primary p-0.5 px-1 rounded-md text-background">
-                {guestbook.fromUser.monadRole}
-              </span>
-              {guestbook.fromUser.certified && (
-                <TooltipProvider delayDuration={100}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <BadgeCheckIcon className="w-5 h-5 text-green-700" />
-                    </TooltipTrigger>
-                    <TooltipContent>Certified!</TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              )}
+              <span className="text-base">NO GUEST NAME</span>
+              <span className="text-sm text-gray-500">(NO DATE)</span>
             </div>
-            <div className="flex gap-8 pl-3 ">
+            <div className="flex gap-8">
               <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <div className="relative flex">
-                    <Avatar className="w-16 h-16 cursor-pointer lg:hover:scale-110 transition-all duration-300">
-                      <AvatarImage src={guestbook.fromUser.imgSrc} />
-                      <AvatarFallback>
-                        {guestbook.fromUser.userName.slice(0, 2)}
-                      </AvatarFallback>
-                    </Avatar>
-                  </div>
-                </DropdownMenuTrigger>
+                <DropdownMenuTrigger asChild></DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DropdownMenuLabel>Connections</DropdownMenuLabel>
                   <DropdownMenuItem>Copy user address</DropdownMenuItem>
@@ -101,21 +87,75 @@ export default function ProfileGuestBookCard() {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <div
-                key={guestbook.date}
-                className="flex flex-col leading-tight text-base"
-              >
-                <p>{guestbook.contents}</p>
-                <div className="cursor-pointer flex items-end gap-1 self-end text-gray-500 lg:hover:text-primary lg:transition-all lg:duration-300">
-                  <span className="text-sm">Reply</span>
-                  <ReplyIcon className="w-3.5 h-3.5 rotate-180" />
-                </div>
+              <div className="flex border border-primary py-5 font-semibold rounded-lg flex-col items-center w-full justify-center leading-tight text-base">
+                <p>NO GUEST BOOK CONTENT AVAILABLE YET</p>
               </div>
             </div>
-
-            {index !== userGuestbookData.length - 1 && <Separator />}
           </div>
-        ))}
+        ) : (
+          userGuestbookData.map((guestbook, index) => (
+            <div key={guestbook.id} className="flex flex-col gap-2">
+              <div className="flex gap-2 items-center text-primary font-semibold">
+                <span className="text-base">{guestbook.fromUser.userName}</span>
+                <span className="text-sm text-gray-500">
+                  ({guestbook.date})
+                </span>
+                <span className="text-xs bg-primary p-0.5 px-1 rounded-md text-background">
+                  {guestbook.fromUser.monadRole}
+                </span>
+                {guestbook.fromUser.certified && (
+                  <TooltipProvider delayDuration={100}>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <BadgeCheckIcon className="w-5 h-5 text-green-700" />
+                      </TooltipTrigger>
+                      <TooltipContent>Certified!</TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                )}
+              </div>
+              <div className="flex gap-8 pl-3 ">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <div className="relative flex">
+                      <Avatar className="w-16 h-16 cursor-pointer lg:hover:scale-110 transition-all duration-300">
+                        <AvatarImage src={guestbook.fromUser.imgSrc} />
+                        <AvatarFallback>
+                          {guestbook.fromUser.userName.slice(0, 2)}
+                        </AvatarFallback>
+                      </Avatar>
+                    </div>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuLabel>Connections</DropdownMenuLabel>
+                    <DropdownMenuItem>Copy user address</DropdownMenuItem>
+                    <DropdownMenuItem>Copy user handle</DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>View User</DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>
+                      <Button className="h-6" size="sm">
+                        Ask to Connect
+                      </Button>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                <div
+                  key={guestbook.date}
+                  className="flex flex-col leading-tight text-base"
+                >
+                  <p>{guestbook.contents}</p>
+                  <div className="cursor-pointer flex items-end gap-1 self-end text-gray-500 lg:hover:text-primary lg:transition-all lg:duration-300">
+                    <span className="text-sm">Reply</span>
+                    <ReplyIcon className="w-3.5 h-3.5 rotate-180" />
+                  </div>
+                </div>
+              </div>
+
+              {index !== userGuestbookData.length - 1 && <Separator />}
+            </div>
+          ))
+        )}
       </CardContent>
     </Card>
   );

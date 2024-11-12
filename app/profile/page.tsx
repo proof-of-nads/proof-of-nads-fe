@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { ProfileCardWithForm } from "./_components/profile-card";
+import { ProfileCardWithForm } from "./_components/profile-card-with-form";
 import { ProfileImageCarousel } from "./_components/profile-image-carousel";
 import { ProofImageCarousel } from "./_components/proof-image-carousel";
 import { auth } from "@/auth";
@@ -36,7 +36,10 @@ const fetchOrRegisterUserData = async (
 ) => {
   if (!username) return;
   try {
-    const response = await fetch(`http://51.89.7.79:7777/api/auth/${username}`);
+    const response = await fetch(
+      `http://51.89.7.79:7777/api/auth/${username}`,
+      { cache: "no-store" }
+    );
     return await response.json();
   } catch (error) {
     console.log("🚀 ~ fetchOrRegisterUserData ~ error:", error);
@@ -82,7 +85,6 @@ export default async function ProfilePage() {
     user?.image,
     user?.email
   );
-  console.log(userData);
 
   return (
     <>

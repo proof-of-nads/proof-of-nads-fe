@@ -10,6 +10,14 @@ const nextConfig = {
     ];
   },
 
+  images: {
+    remotePatterns: [
+      {
+        hostname: "**",
+      },
+    ],
+  },
+
   webpack: (config) => {
     config.externals.push(
       "encoding" /* add any other modules that might be causing the error */

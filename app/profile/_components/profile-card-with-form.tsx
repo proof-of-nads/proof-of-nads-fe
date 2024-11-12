@@ -22,6 +22,7 @@ export function ProfileCardWithForm({
   userInfo,
 }: IProfileCardWithFormProps) {
   const user = session?.user;
+  console.log("🚀 ~ userInfo:", userInfo);
 
   return (
     <Card className="w-full flex-1">

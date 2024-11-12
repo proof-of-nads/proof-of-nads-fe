@@ -40,10 +40,11 @@ const fetchOrRegisterUserData = async (
     //   `http://51.89.7.79:7777/api/auth/${username}`,
     //   { cache: "no-store" }
     // );
-    const response = await fetch(
-      `http://51.89.7.79:7777/api/auth/${username}`,
-      { cache: "no-store" }
-    );
+    const response = await fetch(`http://51.89.7.79:7777/api/auth/mocks`, {
+      cache: "no-store",
+    });
+
+    console.log(response);
     return await response.json();
   } catch (error) {
     console.log("🚀 ~ fetchOrRegisterUserData ~ error:", error);

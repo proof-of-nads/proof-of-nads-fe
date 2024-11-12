@@ -87,8 +87,10 @@ export default function ProfileGuestBookCard({
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <div className="flex border border-primary py-5 font-semibold rounded-lg flex-col items-center w-full justify-center leading-tight text-base">
-                <p>NO GUEST BOOK CONTENT AVAILABLE YET</p>
+              <div className="flex  border border-primary py-5 font-semibold rounded-lg flex-col items-center w-full justify-center leading-tight text-base">
+                <p className="text-center">
+                  NO GUEST BOOK CONTENT AVAILABLE YET
+                </p>
               </div>
             </div>
           </div>

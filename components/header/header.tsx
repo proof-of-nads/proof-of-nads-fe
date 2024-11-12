@@ -1,7 +1,7 @@
 import ConnectButton from "../connect-button";
 import HeaderNavigation from "./header-navigation";
 import Logo from "../logo/logo";
-import HamburgerMenu from "./hamburger-menu";
+// import HamburgerMenu from "./hamburger-menu";
 import { ThemeToggle } from "./theme-toggle";
 import { auth } from "@/auth";
 
@@ -21,7 +21,7 @@ export default async function Header() {
           className="hidden lg:flex"
           isConnected={isConnected ?? false}
         />
-        <HamburgerMenu isConnected={isConnected ?? false} />
+        {/* <HamburgerMenu isConnected={isConnected ?? false} /> */}
       </div>
     </header>
   );

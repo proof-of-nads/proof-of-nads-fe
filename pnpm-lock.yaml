@@ -138,7 +138,7 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0(@types/react-dom@18.3.1)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       viem:
-        specifier: 2.x
+        specifier: ^2.7.9
         version: 2.21.27(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@5.0.10)
       wagmi:
         specifier: ^2.12.18

@@ -36,6 +36,10 @@ const fetchOrRegisterUserData = async (
 ) => {
   if (!username) return;
   try {
+    // const response = await fetch(
+    //   `http://51.89.7.79:7777/api/auth/${username}`,
+    //   { cache: "no-store" }
+    // );
     const response = await fetch(
       `http://51.89.7.79:7777/api/auth/${username}`,
       { cache: "no-store" }
